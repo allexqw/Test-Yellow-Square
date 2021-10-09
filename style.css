@@ -1,13 +1,348 @@
 *,
 ::before,
-::after {
+::after,
+a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: icons;
+  src: url(./fonts/icons.ttf);
 }
 
 body {
   font-family: "Roboto", sans-serif;
   font-family: "Source Sans Pro", sans-serif;
   font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.header {
+  position: fixed;
+  height: 96px;
+  width: 100%;
+  box-shadow: #888888 0px 2px 2px;
+}
+
+.header::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.header-inner__top,
+.header-inner__bottom {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  align-items: center;
+}
+
+.header-inner__bottom {
+  height: 60px;
+  background-color: #ffffff;
+  color: #212121;
+}
+
+.header__menu-burger {
+  display: none;
+}
+.header__menu-contact {
+  display: none;
+}
+.header-inner__top {
+  background: #111111;
+  color: #ffffff;
+  height: 36px;
+  font-size: 12px;
+}
+.header__contacts_social-link {
+  display: none;
+}
+
+.header__contacts {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.header__contacts:nth-child(n) {
+  height: 100%;
+}
+
+.header__contacts_address {
+  margin: auto 0;
+}
+
+.header__contacts_contacts a {
+  color: #ffffff;
+}
+.header__contacts_contacts {
+  display: block;
+  color: #ffffff;
+  margin: auto 0;
+}
+
+.contact-link:first-child {
+  font-weight: 400;
+}
+.contact-link {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.header__menu {
+  display: flex;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+}
+.header__menu:last-child a {
+  margin-right: 0px;
+}
+.icon-logo-mobile {
+  display: none;
+}
+
+.menu__link {
+  line-height: 60px;
+  margin: auto 0 auto 30px;
+  height: 100%;
+  position: relative;
+}
+
+.menu__link:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #212121;
+}
+
+@media (max-width: 768px) {
+  body a {
+    color: #000000;
+  }
+
+  .header__menu-burger {
+    position: relative;
+    width: 30px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .burger::after,
+  .burger::before {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: #111111;
+    z-index: 5;
+    content: "";
+    transition: all 0.3s ease 0s;
+  }
+
+  .header_menu-contact.active span::before,
+  .header_menu-contact.active span::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+  }
+  .close::before,
+  .close::after {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    content: "";
+    z-index: 5;
+    transition: all 0.1s ease 0s;
+    background-color: #111111;
+  }
+
+  .close::after {
+    visibility: hidden;
+    bottom: 50%;
+  }
+  .close::before {
+    visibility: hidden;
+    top: 50%;
+  }
+
+  .header__menu-contact.active .icon-phone::before {
+    visibility: hidden;
+  }
+  .header__menu-contact.active {
+    border: transparent;
+  }
+
+  .header__menu-contact.active .close::before {
+    visibility: visible;
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .header__menu-contact.active .close::after {
+    visibility: visible;
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+
+  .header_menu-contact.active span::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .header_menu-contact.active span::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+
+  .header__menu-burger.active .burger::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+  .header__menu-burger.active .burger::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .burger.active::after {
+  }
+  .burger::after {
+    bottom: 0;
+  }
+  .burger::before {
+    top: 0;
+  }
+  .icon-helloworld {
+    display: none;
+  }
+  .icon-logo-mobile {
+    display: block;
+  }
+
+  .header__menu-burger,
+  .header__menu-contact {
+    display: block;
+  }
+  .header__menu-contact {
+    border: #111111 1px solid;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .header {
+    height: 56px;
+  }
+
+  .header-inner__top {
+    position: fixed;
+    top: -100%;
+  }
+
+  .header-inner__bottom {
+    height: 56px;
+  }
+  .header__contacts {
+    display: none;
+    flex-direction: column;
+
+    align-items: center;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    color: #111111;
+  }
+  .header__contacts:nth-child(n) {
+    height: auto;
+  }
+
+  .header__contacts_contacts a {
+    color: #111111;
+  }
+  .header__contacts_contacts {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    line-height: 60px;
+    margin: auto 0px;
+    height: 100%;
+  }
+
+  .contact-link {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: auto 0;
+  }
+
+  .header__contacts_address {
+    display: none;
+  }
+
+  .header__contacts_social-link {
+    display: block;
+    margin: 10px auto;
+    font-size: 28px;
+    padding-top: 20px;
+  }
+
+  .header__contacts_social-link span {
+    margin: 10px;
+  }
+
+  .header__menu.active,
+  .header__contacts.active {
+    display: flex;
+  }
+
+  .header__menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .menu__link {
+    line-height: 60px;
+    margin: auto 30px auto 30px;
+    height: 100%;
+    position: relative;
+  }
+
+  .menu__link:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
 }
