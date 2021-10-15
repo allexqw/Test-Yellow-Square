@@ -273,7 +273,41 @@ a {
   bottom: -3px;
 }
 
-.home-page__traid-in {
+/* ------------location----------- */
+
+.location {
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 98px;
+}
+
+.location__content {
+  position: absolute;
+  width: 100%;
+  max-width: 433px;
+  height: 112px;
+  margin: 100px 0 0 132px;
+}
+.location__address {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+}
+.location__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #5b5b5b;
+  margin-top: 5px;
+}
+
+.location__image {
+  height: auto;
+  width: 100%;
+  max-width: 1440px;
 }
 
 @media (max-width: 1023px) {
@@ -309,12 +343,13 @@ a {
     width: 50%;
     max-width: 511.5px;
     height: 312px;
+    overflow: hidden;
   }
   .home-page__service-image {
     width: 100%;
     max-width: 511.5px;
     height: 312px;
-    bottom: -20px;
+    bottom: 0px;
 
     /* bottom: -3px; */
   }
@@ -323,6 +358,31 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .location {
+    width: 100%;
+    max-width: 1024px;
+    /* height: 100%; */
+    height: 542px;
+    overflow: hidden;
+  }
+
+  .location__content {
+    position: absolute;
+    width: 100%;
+    max-width: 433px;
+    height: 112px;
+    margin: 70px 0 0 40px;
+    z-index: 5;
+  }
+
+  .location__image {
+    width: 100%;
+    max-width: 1024px;
+    height: 542px;
+  }
+  .location__image img {
+    max-width: 1024px;
   }
 }
 
@@ -659,5 +719,60 @@ a {
   }
   .home-page__container {
     margin: 30px;
+  }
+  .location {
+    display: flex;
+    width: 100%;
+    max-width: 767px;
+    height: 542px;
+    overflow: hidden;
+    top: 58px;
+    background-color: #f8f8f8;
+  }
+
+  .location__content {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    max-width: 433px;
+    height: auto;
+    margin: 0px 0px 0 40px;
+    padding-right: 30px;
+  }
+
+  .location__image {
+    position: relative;
+    max-width: 767px;
+    height: 542px;
+  }
+
+  .location__address {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .location__description {
+    line-height: 24px;
+    color: #5b5b5b;
+    margin: 40px 0px 10px 0px;
+  }
+
+  .location__description::before {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+    font-weight: 700;
+    content: "Бесплатная диагностика";
+    color: #111111;
+    line-height: 32px;
+    margin-bottom: 10px;
+  }
+
+  .location__image img {
+    transform: scale(1, 1);
+    height: 100%;
+    position: absolute;
+    right: -210px;
+    bottom: 0;
   }
 }
