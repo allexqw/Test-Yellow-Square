@@ -152,7 +152,6 @@ a {
   display: flex;
   width: 100%;
   max-width: 1440px;
-  /* padding: 0 30px; */
   background-color: #ffffff;
   margin: 0 auto;
 }
@@ -265,6 +264,7 @@ a {
   font-size: 32px;
   cursor: pointer;
   margin-top: 20px;
+  display: inline-block;
 }
 
 .home-page__service-image {
@@ -278,7 +278,7 @@ a {
 .location {
   width: 100%;
   max-width: 1440px;
-  height: auto;
+  height: 542px;
   margin: 0 auto;
   position: relative;
   top: 98px;
@@ -290,6 +290,7 @@ a {
   max-width: 433px;
   height: 112px;
   margin: 100px 0 0 132px;
+  z-index: 10;
 }
 .location__address {
   font-size: 24px;
@@ -305,9 +306,181 @@ a {
 }
 
 .location__image {
-  height: auto;
+  position: relative;
+  height: 542px;
   width: 100%;
   max-width: 1440px;
+}
+
+.location__image img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1440px;
+
+  height: 100%;
+}
+
+/* --------services------------ */
+
+.services {
+  position: relative;
+  top: 96px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.services__main-services {
+  display: flex;
+}
+.services__warranty-repair,
+.services__sale-phone {
+  position: relative;
+  width: 50%;
+  max-width: 720px;
+  height: 496px;
+  background: linear-gradient(to bottom right, #cbcbcb, #ffffff);
+}
+
+.services__content {
+  z-index: 5;
+  position: relative;
+  width: 100%;
+  max-width: 477px;
+  padding: 57px 0 0 56px;
+}
+.services__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+.services__description {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #5b5b5b;
+}
+
+.services__button {
+  display: inline-block;
+  cursor: pointer;
+}
+.icon-button-mobile {
+  display: none;
+}
+.services__image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.services__repair-left {
+  position: absolute;
+  bottom: -150px;
+  left: -147px;
+}
+.services__repair-right {
+  position: absolute;
+  bottom: -225px;
+  left: 165px;
+}
+
+.services__sale-left {
+  position: absolute;
+  bottom: -250px;
+  left: -80px;
+  transform: rotate(-30deg);
+}
+.services__sale-right {
+  max-width: 250px;
+  overflow: hidden;
+  position: absolute;
+  bottom: -50px;
+  left: 400px;
+  transform: rotate(50deg);
+}
+.services__sale-right img {
+  transform: rotate(10deg);
+  object-fit: contain;
+}
+
+.service-items {
+  max-width: 1440px;
+  width: 100%;
+  padding: 112px;
+}
+.service-items__container {
+  width: 100%;
+  max-width: 1216px;
+  height: 480px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.service-items__item {
+  width: 28%;
+}
+.service-items__content {
+  max-width: 336px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.service-items__image {
+  font-size: 64px;
+}
+.service-items__title {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+}
+.service-items__description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #959595;
+  line-height: 24px;
+}
+/* ---------footer----------- */
+
+.footer {
+  position: relative;
+  top: 96px;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+}
+.footer__request {
+  width: 50%;
+}
+
+.request__title {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.32;
+}
+
+.request__image {
+  display: none;
+}
+.request__form {
+}
+.footer__information {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 1023px) {
@@ -383,6 +556,62 @@ a {
   }
   .location__image img {
     max-width: 1024px;
+  }
+
+  .services {
+    max-width: 1024px;
+  }
+  .services__warranty-repair,
+  .services__sale-phone {
+    max-width: 512px;
+    height: 480px;
+    background: linear-gradient(to bottom right, #cbcbcb, #ffffff);
+  }
+
+  .services__content {
+    width: 100%;
+    max-width: 287px;
+  }
+
+  .services__title {
+    line-height: 32px;
+  }
+  .services__repair-left {
+    bottom: -200px;
+    left: -236px;
+    transform: scale(0.9, 0.9);
+  }
+  .services__repair-right {
+    bottom: -255px;
+    left: 60px;
+    transform: rotate(0deg);
+  }
+
+  .services__image {
+  }
+  .services__sale-left {
+    bottom: -250px;
+    left: 0px;
+    transform: rotate(35deg) scale(-1, 1);
+  }
+  .services__sale-right {
+    bottom: -100px;
+    left: -150px;
+    transform: rotate(-45deg);
+  }
+  .service-items__title {
+    font-weight: 500;
+  }
+
+  .service-items__item {
+    width: 48%;
+    margin-bottom: 60px;
+  }
+
+  .service-items {
+    max-width: 1024px;
+    width: 100%;
+    padding: 60px 40px;
   }
 }
 
@@ -774,5 +1003,88 @@ a {
     position: absolute;
     right: -210px;
     bottom: 0;
+  }
+
+  .services {
+    max-width: 768px;
+    top: 58px;
+  }
+
+  .services__main-services {
+    display: flex;
+    flex-direction: column;
+  }
+  .services__warranty-repair,
+  .services__sale-phone {
+    width: 100%;
+    max-width: 768px;
+    height: 456px;
+  }
+
+  .services__content {
+    /* width: 100%; */
+    width: 100%;
+    max-width: 767px;
+    padding: 32px 0 0 32px;
+  }
+
+  .services__title {
+    line-height: 32px;
+    max-width: 80%;
+  }
+  .services__description {
+    max-width: 80%;
+  }
+
+  .icon-button {
+    display: none;
+  }
+  .icon-button-mobile,
+  .icon-button-mobile a {
+    display: inline-block;
+  }
+
+  .icon-button-mobile::before {
+    content: "Подробнее";
+    width: 100%;
+    height: 20px;
+    font-size: 16px;
+    color: #0057ff;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  .icon-button-mobile::after {
+    display: inline-block;
+    content: "";
+    color: #2c6dec;
+    width: 6px;
+    height: 6px;
+    margin: 1px 6px;
+    border-right: #2c6dec 2px solid;
+    border-bottom: #2c6dec 2px solid;
+    transform: rotate(-45deg);
+  }
+  .services__repair-left {
+    bottom: -170px;
+    left: -240px;
+    transform: scale(0.8, 0.8);
+  }
+  .services__repair-right {
+    bottom: -230px;
+    right: 100px;
+    transform: rotate(0deg);
+    transform: scale(0.8, 0.8);
+  }
+  .services__sale-left {
+    bottom: -250px;
+    left: 0px;
+    transform: rotate(35deg) scale(-1, 1);
+  }
+  .services__sale-right {
+    bottom: -100px;
+    left: -150px;
+    transform: rotate(-45deg);
   }
 }

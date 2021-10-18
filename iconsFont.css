@@ -10,8 +10,8 @@
   font-display: block;
 }
 
-[class^="icon-"]::before,
-[class*=" icon-"]::before {
+[class^="icon-"],
+[class*="icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icons" !important;
   speak: never;
@@ -39,6 +39,9 @@
   display: block;
 }
 .icon-button:before {
+  font-size: 32px;
+  cursor: pointer;
+  margin-top: 20px;
   content: "\e901";
 }
 .icon-Union:before {
