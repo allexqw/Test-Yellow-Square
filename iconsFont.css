@@ -102,10 +102,12 @@
 .icon-close:before {
   content: "\e90f";
   color: #cbcbcb;
+  transition: all 0.3s linear;
 }
 .icon-checked:before {
   content: "\e910";
   color: #2c6dec;
+  font-size: 64px;
 }
 .icon-car .path1:before {
   content: "\e911";
