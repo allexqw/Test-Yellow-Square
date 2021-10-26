@@ -69,7 +69,7 @@
             <div class="home-page__description-mobile">
               Выезд мастера. Trade-In. Все виды ремонта.
             </div>
-            <div class="home-page__call-button">Заказать звонок</div>
+            <div data-p="popup-call" class="home-page__call-button popup-link">Заказать звонок</div>
           </div>
 
           <div class="home-page__image">
@@ -294,9 +294,12 @@
               Оставьте свой телефон, и мы вам перезвоним
             </div>
             <div class="request__form-field">
-              <div class="request__form-input"></div>
-              <div class="request__form-button">Отправить</div>
-              <div class="icon-footer-button-mobile"></div>
+              <input class="request__form-input"></input>
+              <div data-p="popup" class="request__form-button-items popup-link">
+                <div class="request__form-button">Отправить</div>
+                <div class="icon-footer-button-mobile"></div>
+
+              </div>
             </div>
             <div class="request__form-sub-title">
               Нажимая на кнопку отправить, Вы соглашаетесь на обработку
@@ -352,7 +355,7 @@
       </div>
     </footer>
 
-    <div class="popup-call">
+    <div id="popup-call" class="popup-call popup" >
       <div class="popup-call__content">
         <div class="popup-call__container">
           <div class="request__title">Хотите, чтобы мы связались с вами?</div>
@@ -362,8 +365,8 @@
               Оставьте свой телефон, и мы вам перезвоним
             </div>
             <div class="request__form-field">
-              <div class="request__form-input"></div>
-              <div class="request__form-button">Отправить</div>
+              <input class="request__form-input"></input>
+              <div data-p="popup" class="request__form-button popup-link ">Отправить</div>
               <div class="icon-footer-button-mobile"></div>
             </div>
             <div class="request__form-invalid-text">
@@ -375,7 +378,7 @@
             </div>
           </div>
         </div>
-        <div class="popup-call__button-close">
+        <div class="popup-call__button-close close-popup ">
           <span class="icon-close"></span>
         </div>
         <div class="popup-call__image">
@@ -383,13 +386,13 @@
         </div>
       </div>
     </div>
-    <div class="popup">
+    <div data-p="popup" id="popup" class="popup">
       <div class="popup__content">
         <div class="popup__icon"><span class="icon-checked"></span></div>
         <div class="popup__text">
           Спасибо, мы свяжемся с вами в ближайшее время
         </div>
-        <div class="popup__button-close">
+        <div class="popup__button-close close-popup">
           <span class="icon-close"></span>
         </div>
       </div>
