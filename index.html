@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&family=Ubuntu:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="iconsFont.css" />
     <title>HelloWorld</title>
@@ -132,7 +136,7 @@
       </div>
       <div class="services">
         <div class="services__main-services">
-          <div class="services__warranty-repair">
+          <div data-p="popup-repair" class="services__warranty-repair popup-link">
             <div class="services__content">
               <div class="services__title">
                 Гарантийный и постгарантийный ремонт
@@ -141,9 +145,9 @@
                 Замена Phone, iPad, Macbook по международной гарантии! Все виды
                 ремонта
               </div>
-              <div class="services__button">
-                <a href="#"><span class="icon-button"></span></a>
-                <a href="#"> <span class="icon-button-mobile"></span></a>
+              <div data-p="popup-repair" class="services__button popup-link">
+                <a href="##"><span class="icon-button"></span></a>
+                <a href="##"> <span class="icon-button-mobile"></span></a>
               </div>
             </div>
             <div class="services__image">
@@ -176,9 +180,9 @@
             </div>
           </div>
         </div>
-        <div class="service-items">
-          <div class="service-items__container">
-            <div class="service-items__item">
+        <div class="service-items swiper" >
+          <div class="service-items__container swiper-wrapper">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -196,7 +200,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-items__item">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -212,7 +216,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-items__item">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -228,7 +232,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-items__item">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -246,7 +250,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-items__item">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -264,7 +268,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-items__item">
+            <div class="service-items__item swiper-slide">
               <div class="service-items__content">
                 <div class="service-items__image">
                   <a href="#">
@@ -281,6 +285,12 @@
               </div>
             </div>
           </div>
+          <!-- <div class="swiper-pagination"></div> -->
+
+          <!-- <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div> -->
+
+          <div class="swiper-scrollbar"></div>
         </div>
       </div>
     </main>
@@ -398,6 +408,101 @@
       </div>
     </div>
 
+    <div id="popup-repair" class="popup-repair popup">
+      <div class="popup-repair__content">
+
+        <div class="popup-repair__title">
+          Гарантийный и постгарантийный ремонт
+        </div>
+        <div class="popup-repair__sub-title">
+          Мы проводим все виды ремонта iPhone, iPad и Macbook
+        </div>
+
+        <div class="popup-repair__items">
+          <div class="popup-repair__item">
+            <div class="pupup-repair__item-title">
+              <div class="popup-repair__item-icon">
+
+                <span class="icon-inside"></span>
+              </div>
+              Внутренний
+
+            </div>
+            <div class="popup-repair__item-list">
+              <div class="item-list__item">Замена микросхем</div>
+              <div class="item-list__item">Шлейфов</div>
+              <div class="item-list__item">Динамиков
+              </div>
+              <div class="item-list__item">Разъёмов
+              </div>
+              <div class="item-list__item">Восстановление плат
+              </div>
+              <div class="item-list__item">"Просушка"</div>
+              </div>
+            </div>
+          <div class="popup-repair__item">
+            <div class="pupup-repair__item-title">
+              <div class="popup-repair__item-icon">
+
+                <span class="icon-outside"></span>
+              </div>
+              Внешний
+
+            </div>
+            <div class="popup-repair__item-list">
+              <div class="item-list__item">Замена экрана</div>
+              <div class="item-list__item">ЖКИ</div>
+              <div class="item-list__item">Модульный ремонт
+
+              </div>
+              <div class="item-list__item">Замена корпуса
+
+              </div>
+              <div class="item-list__item">Аксессуары и д.р.
+              </div>
+              </div>
+            </div>
+          <div class="popup-repair__item">
+            <div class="pupup-repair__item-title">
+              <div class="popup-repair__item-icon">
+
+                <span class="icon-program"></span>
+              </div>
+              Программный
+
+            </div>
+            <div class="popup-repair__item-list">
+                <div class="item-list__item">Разблокировка</div>
+                <div class="item-list__item">Восстановление данных
+                </div>
+                <div class="item-list__item">Создание Apple ID
+
+                </div>
+                <div class="item-list__item">Настройка iCloud
+
+                </div>
+                <div class="item-list__item">Установка ПО, навигации
+
+                </div>
+                <div class="item-list__item">Перенос данных с\на</div>
+                </div>
+              </div>
+        </div>
+<div class="popup-repair__additional-text">
+  У нас можно обменять по гарантии неисправное устройство,
+приобретенное в любой стране
+</div>
+<div class="popup-repair__background-image">
+  <img  src="./image/repair-phone.png" alt="">
+</div>
+        <div class="popup-repair__close-button close-popup ">
+          <span class="icon-close"></span>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
