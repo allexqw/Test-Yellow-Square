@@ -6,7 +6,6 @@ const menu = document.querySelector(".header__menu");
 const popupLinks = document.querySelectorAll(".popup-link");
 const body = document.querySelector("body");
 
-console.log(popupLinks);
 if (popupLinks.length > 0) {
   for (let index = 0; index < popupLinks.length; index++) {
     const popupLink = popupLinks[index];
@@ -28,13 +27,26 @@ if (popupCloseIcon.length > 0) {
   }
 }
 
+function bodyLock() {
+  const lockPaddingValue =
+    window.innerWidth - document.querySelector(".main").offsetWidth + "px";
+  console.log(lockPaddingValue);
+  body.style.paddingRight = lockPaddingValue;
+  body.classList.add("lock");
+}
+
+function bodyUnlock() {
+  body.style.paddingRight = "0px";
+  body.classList.remove("lock");
+}
+
 function popupOpen(currentPopup) {
   if (currentPopup) {
     const popupActive = document.querySelector(".popup.open");
     if (popupActive) {
       popupClose(popupActive);
     } else {
-      // bodyLock();
+      bodyLock();
     }
     currentPopup.classList.add("open");
   }
@@ -42,6 +54,7 @@ function popupOpen(currentPopup) {
 
 function popupClose(popupActive) {
   popupActive.classList.remove("open");
+  bodyUnlock();
 }
 
 buttonContact.addEventListener("click", (e) => {
@@ -63,6 +76,43 @@ let removeActive = (element, elementButton) => {
   elementButton.classList.remove("active");
 };
 
+const menuLinks = document.querySelectorAll(".menu__link[data-link]");
+console.log(menuLinks);
+if (menuLinks.length > 0) {
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener("click", menuClick);
+  });
+
+  function menuClick(e) {
+    const menuLink = e.target;
+
+    menuLinks.forEach((menuLink) => {
+      if (menuLink.classList.contains("active-link")) {
+        menuLink.classList.remove("active-link");
+      }
+    });
+
+    if (
+      menuLink.dataset.link &&
+      document.querySelector(menuLink.dataset.link)
+    ) {
+      menuLink.classList.add("active-link");
+      const linkBlock = document.querySelector(menuLink.dataset.link);
+      const linkBlockValue =
+        linkBlock.getBoundingClientRect().top +
+        pageYOffset -
+        document.querySelector(".header").offsetHeight;
+      console.log(linkBlockValue);
+      console.log(linkBlock);
+      window.scrollTo({
+        top: linkBlockValue,
+        behavior: "smooth",
+      });
+      e.preventDefault();
+    }
+  }
+}
+
 const swiper = new Swiper(".service-items", {
   speed: 400,
   spaceBetween: 100,
@@ -73,5 +123,95 @@ const swiper = new Swiper(".service-items", {
   scrollbar: {
     el: ".swiper-scrollbar",
     draggable: true,
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 3,
+      autoHeight: false,
+      touchRatio: 0,
+      simulateTouch: false,
+      watchOverflow: false,
+      slidesPerColumn: 4,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 3,
+      slidesPerColumn: 3,
+      autoHeight: false,
+      touchRatio: 0,
+      simulateTouch: false,
+      watchOverflow: false,
+      spaceBetween: 0,
+    },
+  },
+});
+
+const swiperRepair = new Swiper(".popup-repair__content", {
+  speed: 400,
+  spaceBetween: 20,
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    draggable: true,
+  },
+
+  touchRatio: 2,
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      autoHeight: false,
+      touchRatio: 0,
+      simulateTouch: false,
+      watchOverflow: false,
+      slidesPerColumn: 3,
+    },
+    1024: {
+      slidesPerView: 4,
+      slidesPerColumn: 1,
+      autoHeight: false,
+      touchRatio: 0,
+      simulateTouch: false,
+      watchOverflow: false,
+      spaceBetween: 0,
+    },
+  },
+});
+
+const swiperSale = new Swiper(".popup-sale-phone__content", {
+  speed: 500,
+  loop: true,
+  spaceBetween: 100,
+
+  slidesPerView: 1,
+  touchRatio: 2,
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    draggable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    768: {
+      spaceBetween: 10,
+      slidesPerView: 2,
+      autoHeight: false,
+      touchRatio: 2,
+      loop: true,
+    },
+    1024: {
+      loop: false,
+      initialSlide: 0,
+      // centeredSlides: true,
+      slidesPerView: 4,
+      slidesPerColumn: 3,
+      autoHeight: false,
+      touchRatio: 0,
+      simulateTouch: false,
+      watchOverflow: false,
+      spaceBetween: 30,
+    },
   },
 });

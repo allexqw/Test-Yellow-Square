@@ -49,11 +49,11 @@
           <span class="icon-logo-mobile"></span>
         </div>
         <div class="header__menu">
-          <a href="#" class="menu__link">Ремонт техники </a>
-          <a href="#" class="menu__link">Trade-In</a>
-          <a href="#" class="menu__link">Наши услуги</a>
-          <a href="#" class="menu__link">Заказать звонок</a>
-          <a href="#" class="menu__link">Контакты </a>
+          <a data-link="" href="#" class="menu__link">Ремонт техники </a>
+          <a data-link="" href="#" class="menu__link">Trade-In</a>
+          <a data-link=".service-items" href="#" class="menu__link">Наши услуги</a>
+          <a data-link=".footer" href="#" class="menu__link">Заказать звонок</a>
+          <a data-link=".footer" href="#" class="menu__link">Контакты </a>
         </div>
         <div class="header__menu-contact">
           <span class="icon-phone"></span>
@@ -159,13 +159,13 @@
               </div>
             </div>
           </div>
-          <div class="services__sale-phone">
+          <div  data-p="popup-sale-phone" class="services__sale-phone popup-link">
             <div class="services__content">
               <div class="services__title">Б/У iPhone в наличии</div>
               <div class="services__description">
                 Купите или поменяйте свой iPhone с доплатой
               </div>
-              <div class="services__button">
+              <div class="services__button popup-link">
                 <span class="icon-button"></span>
                 <span class="icon-button-mobile"></span>
               </div>
@@ -377,7 +377,7 @@
             <div class="request__form-field">
               <input class="request__form-input"></input>
               <div data-p="popup" class="request__form-button popup-link ">Отправить</div>
-              <div class="icon-footer-button-mobile"></div>
+              <div data-p="popup" class="icon-footer-button-mobile popup-link "></div>
             </div>
             <div class="request__form-invalid-text">
               Проверьте,пожалуйста, корректность номера телефона
@@ -409,7 +409,7 @@
     </div>
 
     <div id="popup-repair" class="popup-repair popup">
-      <div class="popup-repair__content">
+      <div class="popup-repair__content swiper">
 
         <div class="popup-repair__title">
           Гарантийный и постгарантийный ремонт
@@ -418,8 +418,8 @@
           Мы проводим все виды ремонта iPhone, iPad и Macbook
         </div>
 
-        <div class="popup-repair__items">
-          <div class="popup-repair__item">
+        <div class="popup-repair__items swiper-wrapper">
+          <div class="popup-repair__item swiper-slide">
             <div class="pupup-repair__item-title">
               <div class="popup-repair__item-icon">
 
@@ -440,7 +440,7 @@
               <div class="item-list__item">"Просушка"</div>
               </div>
             </div>
-          <div class="popup-repair__item">
+          <div class="popup-repair__item swiper-slide">
             <div class="pupup-repair__item-title">
               <div class="popup-repair__item-icon">
 
@@ -462,7 +462,7 @@
               </div>
               </div>
             </div>
-          <div class="popup-repair__item">
+          <div class="popup-repair__item swiper-slide">
             <div class="pupup-repair__item-title">
               <div class="popup-repair__item-icon">
 
@@ -488,6 +488,7 @@
                 </div>
               </div>
         </div>
+        <div class="swiper-scrollbar"></div>
 <div class="popup-repair__additional-text">
   У нас можно обменять по гарантии неисправное устройство,
 приобретенное в любой стране
@@ -498,6 +499,144 @@
         <div class="popup-repair__close-button close-popup ">
           <span class="icon-close"></span>
         </div>
+      </div>
+    </div>
+
+    <div id=popup-sale-phone class="popup-sale-phone popup  ">
+
+      <div class="popup-sale-phone__content swiper">
+        <div class="popup-repair__close-button close-popup ">
+          <span class="icon-close"></span>
+        </div>
+        <div class="popup-sale-phone__title">
+          Б/У iPhone в наличии
+        </div>
+        <div class="popup-sale-phone__sub-title">
+          Эти и многие другие телефоны в наличии в нашем салоне.
+Приходите, выбирайте и поменяйте свой старый iPhone на новый!
+        </div>
+
+        <div class="popup-sale-phone__items swiper-wrapper ">
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone8.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 8
+            </div>
+            <div class="item__sub-title">
+              В безупречном состоянии 5/5. 
+            Всегда в чехле и под стеклом. Хороший
+            аккумулятор и новый комплект!
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="image/iphonese.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone SE
+            </div>
+            <div class="item__sub-title">
+              В безупречном состоянии 5/5. Живые фото и гарантия по супер цене!
+
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone6s.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 6S
+            </div>
+            <div class="item__sub-title">
+              iPhone 6s в золотом, розовом, черном и
+              сером цветах. Состояние 5-5, есть мелкие следы по корпусу.
+              
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone8.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 8
+            </div>
+            <div class="item__sub-title swiper-slide">
+              В безупречном состоянии 5/5. 
+            Всегда в чехле и под стеклом. Хороший
+            аккумулятор и новый комплект!
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="image/iphonese.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone SE
+            </div>
+            <div class="item__sub-title">
+              В безупречном состоянии 5/5. Живые фото и гарантия по супер цене!
+
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone6s.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 6S
+            </div>
+            <div class="item__sub-title">
+              iPhone 6s в золотом, розовом, черном и
+              сером цветах. Состояние 5-5, есть мелкие следы по корпусу.
+              
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone8.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 8
+            </div>
+            <div class="item__sub-title">
+              В безупречном состоянии 5/5. 
+            Всегда в чехле и под стеклом. Хороший
+            аккумулятор и новый комплект!
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="image/iphonese.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone SE
+            </div>
+            <div class="item__sub-title">
+              В безупречном состоянии 5/5. Живые фото и гарантия по супер цене!
+
+            </div>
+          </div>
+          <div class="popup-sale-phone__item swiper-slide">
+            <div class="item__image">
+              <img src="./image/iphone6s.png" alt="">
+            </div>
+            <div class="item__title">
+              iPhone 6S
+            </div>
+            <div class="item__sub-title">
+              iPhone 6s в золотом, розовом, черном и
+              сером цветах. Состояние 5-5, есть мелкие следы по корпусу.
+              
+            </div>
+          </div>
+        </div>
+                  <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <div class="swiper-scrollbar"></div>
+
       </div>
     </div>
 
