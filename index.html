@@ -49,11 +49,11 @@
           <span class="icon-logo-mobile"></span>
         </div>
         <div class="header__menu">
-          <a data-link="" href="#" class="menu__link">Ремонт техники </a>
-          <a data-link="" href="#" class="menu__link">Trade-In</a>
-          <a data-link=".service-items" href="#" class="menu__link">Наши услуги</a>
-          <a data-link=".footer" href="#" class="menu__link">Заказать звонок</a>
-          <a data-link=".footer" href="#" class="menu__link">Контакты </a>
+          <a data-link=".repair-page" href="repair" class="menu__link">Ремонт техники </a>
+          <a data-link=".trade-in-page" href="trade-in" class="menu__link">Trade-In</a>
+          <a data-link=".service-items" href="services" class="menu__link">Наши услуги</a>
+          <a data-link=".footer" href="request-call" class="menu__link">Заказать звонок</a>
+          <a data-link=".footer" href="contact" class="menu__link">Контакты </a>
         </div>
         <div class="header__menu-contact">
           <span class="icon-phone"></span>
@@ -63,7 +63,7 @@
     </header>
     <main class="main">
       <div class="home-page">
-        <div class="home-page__request">
+        <div data-page=".home-page__request" class="home-page__request page">
           <div class="home-page__content">
             <div class="home-page__title">Ремонт техники Apple в Гродно</div>
             <div class="home-page__description">
@@ -84,7 +84,169 @@
             />
           </div>
         </div>
-        <div class="home-page__services">
+
+          <div data-page=".repair-page" class="repair-page page">
+            <div class="repair-page__container">
+              <div class="repair-page__cost">
+                <div class="cost__title">
+                  Предварительная стоимость ремонта
+                </div>
+                <div class="cost__title-mobile">Предварительная стоимость</div>
+                <div class="cost__cost-repair ">от 30 руб.</div>
+                <div data-p="popup-call" class="cost__call popup-link">Связаться с нами</div>
+                <div class="cost__image">
+                  <img src="./image/photo-repair-phone.png" alt="">
+                </div>
+              </div>
+              <div class="repair-page__calculator">
+                <div class="calculator__title">
+                  Узнайте стоимость ремонта прямо сейчас
+                </div>
+                <div class="calculator__sub-title">
+                  Ответьте на простые вопросы, и мы сообщим вам стоимость ремонта
+                </div>
+
+                <div class="calculator__problem-block">
+                  <div class="calculator__mobile">
+
+                    <div class="calculator__mobile-items items select arrow">
+                      <div class="calculator__mobile-title select ">Модель вашего iPhone</div>
+                      <div class="mobile__item select">iphone 4/4s</div>
+                      <div class="mobile__item select">iphone 5/5s</div>
+                      <div class="mobile__item select">iphone 6/6s</div>
+                      <div class="mobile__item select">iphone 7</div>
+                      <div class="mobile__item select">iphone 8</div>
+                      <div class="mobile__item select">iphone 9</div>
+                      <div class="mobile__item select">iphone 10 </div>
+                      <div class="mobile__item select">iphone 11 </div>
+                      <div class="mobile__item select">iphone 12 </div>
+                      <div class="mobile__item select">iphone 13 </div>
+                      
+                    </div>
+                  </div>
+                  <div class="calculator__problem-mobile">
+                    Что сломалось
+                  </div>
+                  <div class="calculator__problem">
+
+                    <div class="calculator__problem-items items select arrow" >
+                      
+                      <div class="calculator__problem-title">Какая у вас проблема</div>
+                      <div class="problem__item select">Разбит экран</div>
+                      <div class="problem__item select">Не держит заряд</div>
+                      <div class="problem__item select">Ремонт корпуса</div>
+                      <div class="problem__item select">Попала вода</div>
+                      <div class="problem__item select ">Разблокировка</div>
+                      <div class="problem__item select">Не работает кнопка</div>
+                      <div class="problem__item select">Другое</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calculator__description">
+                  *Данная оценка предварительна и рассчитана по стандартному тарифу. 
+Точная стоимость ремонта вашего iPhone будет известна только после
+бесплатной диагностики в магазине.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-page=".trade-in-page" class="trade-in-page page">
+            <div class="trade-in-page__container">
+              <div class="trade-in-page__cost">
+                <div class="cost__title">
+                  Предварительная стоимость 
+                </div>
+                <div class="cost__title-mobile">Предварительная сумма возмещения</div>
+                <div class="cost__cost-repair ">до 105 руб.</div>
+                <div data-p="popup-call" class="cost__call popup-link">Связаться с нами</div>
+                <div class="cost__image">
+                  <img src="/image/apple-devices.png" alt="">
+                </div>
+              </div>
+
+
+              
+
+              <div class="trade-in-page__calculator">
+                <div class="calculator__title">
+                  Узнайте стоимость вашего iPhone прямо сейчас
+                </div>
+                <div class="calculator__sub-title">
+                  Ответьте на простые вопросы, и мы сообщим вам сумму возмещения
+                </div>
+
+
+                 
+
+                  <div class="calculator__question-block">
+                    <div class="calculator__mobile">
+
+                      <div class="calculator__mobile-items items select arrow">
+                        <div class="calculator__mobile-title select ">Модель вашего iPhone</div>
+                        
+                        <div class="mobile__item select">iphone 4/4s</div>
+                        <div class="mobile__item select">iphone 5/5s</div>
+                        <div class="mobile__item select">iphone 6/6s</div>
+                        <div class="mobile__item select">iphone 7</div>
+                        <div class="mobile__item select">iphone 8</div>
+                        <div class="mobile__item select">iphone 9</div>
+                        <div class="mobile__item select">iphone 10 </div>
+                        <div class="mobile__item select">iphone 11 </div>
+                        <div class="mobile__item select">iphone 12 </div>
+                        <div class="mobile__item select">iphone 13 </div>
+                        
+                      </div>
+                    </div>
+                    <div class="calculator__memory">
+
+                      <div class="calculator__memory-items items select arrow">
+                        <div class="calculator__memory-title select ">Объем памяти</div>
+                        
+                        <div class="memory-item select">16 GB</div>
+                        <div class="memory-item select">32 GB</div>
+                        <div class="memory-item select">64 GB</div>
+                        
+                      </div>
+                    </div>
+                    <!-- <div class="calculator__question-mobile">
+                      Состояние дисплея и корпуса
+                    </div> -->
+                    <div class="calculator__condition">
+                      <div class="calculator__condition-items arrow select items ">
+                        <div class="calculator__condition-title select">
+                          Состояние дисплея и корпуса
+                        </div>
+                        
+                      <div class="condition-item select"><p>Идеальное<br/>(Как из коробки)</p></div>
+                      <div class="condition-item select"><p>Хорошее<br/>(Незначительные царапинки)</p></div>
+                      <div class="condition-item select"><p>Среднее<br/>(1-2 заметные царапины)</p></div>
+                      <div class="condition-item select"><p>Плохое<br/>(2+ царапины и вмятины)</p></div>
+                    </div>
+                      
+                    </div>
+                    <div class="calculator__equipment">
+                      
+                      <div class="calculator__equipment-items arrow select items">
+                        <div class="calculator__equipment-title select">Комплектация</div>
+                        <div class="equipment-item select">Коробка</div>
+                        <div class="equipment-item select">Чек</div>
+                        <div class="equipment-item select">Адаптер*</div>
+                        <div class="equipment-item select">Кабель*</div>
+                        <div class="equipment-item select">Наушники*</div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="calculator__description">
+                  *В расчёт принимаются только оригинальные аксессуары.<br/>
+**Данная оценка предварительна и рассчитана по высокому грейду. Точная стоимость вашего iPhone будет известна только после диагностики в магазине.
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        <div data-page=".home-page__services" class="home-page__services page">
           <div class="home-page__repair">
             <div class="home-page__container">
               <div class="home-page__service-title">Ремонт</div>
@@ -105,7 +267,7 @@
           </div>
           <div class="home-page__traid-in">
             <div class="home-page__container">
-              <div class="home-page__service-title">Traid-in</div>
+              <div class="home-page__service-title">Trade-in</div>
               <div class="home-page__service-description">
                 Рассчитать стоимость возмещения
               </div>
