@@ -6,28 +6,22 @@ const menu = document.querySelector(".header__menu");
 const popupLinks = document.querySelectorAll(".popup-link");
 const body = document.querySelector("body");
 
-const mobileModels = document.querySelectorAll(".list__item");
-const mobileModelButton = document.querySelector(".mobile");
 const items = document.querySelectorAll(".item");
 const itemButton = document.querySelectorAll(".items");
 const select = document.querySelectorAll(".select");
 
 if (itemButton.length > 0) {
-  console.log(itemButton);
   itemButton.forEach((elem) => {
     const elements = elem.querySelectorAll(".select");
     elem.addEventListener("click", () => {
       const selectItem = document.querySelectorAll(".select.open");
       if (selectItem.length == 0) {
         elem.classList.add("open");
-        console.log(elements);
         elements.forEach((e) => {
           e.classList.add("open");
-          console.log(selectItem);
         });
       } else {
         selectItem.forEach((elem) => {
-          console.log(elem);
           elem.classList.remove("open");
         });
       }
@@ -39,7 +33,6 @@ if (popupLinks.length > 0) {
   for (let index = 0; index < popupLinks.length; index++) {
     const popupLink = popupLinks[index];
     popupLink.addEventListener("click", (e) => {
-      console.log(popupLink);
       const popupName = popupLink.getAttribute("data-p");
       const currentPopup = document.getElementById(popupName);
       popupOpen(currentPopup);
@@ -55,16 +48,19 @@ if (popupCloseIcon.length > 0) {
     });
   }
 }
-
+const lockPadding = document.querySelector(".lock-padding");
+console.log(lockPadding);
 function bodyLock() {
   const lockPaddingValue =
     window.innerWidth - document.querySelector(".main").offsetWidth + "px";
   console.log(lockPaddingValue);
   body.style.paddingRight = lockPaddingValue;
+  lockPadding.style.paddingRight = lockPaddingValue;
   body.classList.add("lock");
 }
 
 function bodyUnlock() {
+  lockPadding.style.paddingRight = "0px";
   body.style.paddingRight = "0px";
   body.classList.remove("lock");
 }
@@ -105,7 +101,6 @@ let removeActive = (element, elementButton) => {
   elementButton.classList.remove("active");
 };
 const page = document.querySelectorAll(".page[data-page]");
-console.log(page);
 const menuLinks = document.querySelectorAll(".menu__link[data-link]");
 console.log(menuLinks);
 if (menuLinks.length > 0) {
@@ -113,23 +108,30 @@ if (menuLinks.length > 0) {
     menuLink.addEventListener("click", menuClick);
   });
   function menuClick(e) {
+    removeActive(menu, buttonMenu);
     const menuLink = e.target;
+    console.log(menuLink);
     page.forEach((item) => {
-      console.log(item.dataset.page);
-      if (item.dataset.page == menuLink.dataset.link) {
-        console.log("yeah");
-        item.classList.add("visible");
-        item.classList.remove("hidden");
-      } else {
-        item.classList.add("hidden");
-        item.classList.remove("visible");
+      if (
+        menuLink.dataset.link == ".repair-page" ||
+        menuLink.dataset.link == ".trade-in-page"
+      ) {
+        if (
+          item.dataset.page == menuLink.dataset.link &&
+          item.classList.contains("page")
+        ) {
+          item.classList.add("visible");
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+          item.classList.remove("visible");
+        }
       }
     });
     menuLinks.forEach((menuLink) => {
       if (menuLink.classList.contains("active-link")) {
         menuLink.classList.remove("active-link");
       }
-      console.log(menuLink.dataset.link);
     });
 
     if (
