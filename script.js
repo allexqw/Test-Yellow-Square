@@ -79,7 +79,7 @@ function popupOpen(currentPopup) {
 
 function popupClose(popupActive) {
   popupActive.classList.remove("open");
-  bodyUnlock();
+  setTimeout(bodyUnlock, 300);
 }
 
 buttonContact.addEventListener("click", (e) => {
@@ -167,7 +167,7 @@ const swiper = new Swiper(".service-items", {
   },
 
   breakpoints: {
-    768: {
+    752: {
       slidesPerView: 3,
       autoHeight: false,
       touchRatio: 0,
@@ -176,7 +176,7 @@ const swiper = new Swiper(".service-items", {
       slidesPerColumn: 4,
       spaceBetween: 0,
     },
-    1024: {
+    1008: {
       slidesPerView: 3,
       slidesPerColumn: 3,
       autoHeight: false,
@@ -199,7 +199,7 @@ const swiperRepair = new Swiper(".popup-repair__content", {
 
   touchRatio: 2,
   breakpoints: {
-    768: {
+    752: {
       slidesPerView: 1,
       autoHeight: false,
       touchRatio: 0,
@@ -207,21 +207,21 @@ const swiperRepair = new Swiper(".popup-repair__content", {
       watchOverflow: false,
       slidesPerColumn: 3,
     },
-    1024: {
+    1008: {
       slidesPerView: 4,
       slidesPerColumn: 1,
       autoHeight: false,
       touchRatio: 0,
       simulateTouch: false,
       watchOverflow: false,
-      spaceBetween: 0,
+      spaceBetween: 20,
     },
   },
 });
 
 const swiperSale = new Swiper(".popup-sale-phone__content", {
   speed: 500,
-  loop: true,
+  // loop: true,
   spaceBetween: 100,
 
   slidesPerView: 1,
