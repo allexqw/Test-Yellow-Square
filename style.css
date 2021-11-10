@@ -1270,7 +1270,7 @@ a {
   width: 100%;
   max-width: 1112px;
   height: 1764px;
-  height: 636px;
+  /* height: 636px; */
   min-width: 0;
   background: #ffffff;
   margin: 0 auto;
@@ -1557,7 +1557,7 @@ a {
   .item-list__item {
     width: 50%;
   }
-  .pupup-repair__item-title {
+  .popup-repair__item-title {
     font-weight: 700;
     padding: 30px 0 30px 0;
   }
@@ -1566,16 +1566,37 @@ a {
     line-height: 24px;
     color: #5b5b5b;
   }
+
   .popup-sale-phone__content.swiper {
+    width: 100%;
+    max-width: 510px;
+    height: 636px;
+    background: #ffffff;
+    margin: auto;
+    border-radius: 24px;
+    overflow: hidden;
+    /* padding: 0 50px; */
+    position: static;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+  }
+  .swiper__inner {
     width: 100%;
     max-width: 656px;
     height: 636px;
-    background: #ffffff;
-    margin: 0 auto;
-    border-radius: 24px;
-    overflow: hidden;
     padding: 0 50px;
+    position: relative;
+    background: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
   }
+  .popup-sale-phone {
+    align-items: flex-start;
+  }
+
   .popup-sale-phone__items {
     flex-wrap: nowrap;
     width: 516px;
@@ -2740,8 +2761,15 @@ a {
   .memory-item.open:hover,
   .condition-item.open:hover,
   .equipment-item.open:hover {
-    border: solid #2d9cdb 2px;
-    padding: 0px 0px 0px 30px;
+    border-bottom: solid #cdcdcd 1px;
+    border-right: solid #cdcdcd 1px;
+    border-left: solid #cdcdcd 1px;
+    border-top: none;
+    padding: 1px 1px 1px 31px;
+  }
+
+  .cost__call:hover {
+    font-size: 16px;
   }
 
   .condition-item {
@@ -2757,6 +2785,30 @@ a {
     visibility: visible;
     border-top: transparent;
     z-index: 70;
+  }
+
+  .calculator__problem-items.open div:nth-of-type(2):hover,
+  .calculator__condition-items.open div:nth-of-type(2):hover,
+  .calculator__equipment-items.open div:nth-of-type(2):hover,
+  .calculator__memory-items.open div:nth-of-type(2):hover,
+  .calculator__mobile-items.open div:nth-of-type(2):hover {
+    border-top: solid #cdcdcd 1px;
+    border-right: solid #cdcdcd 1px;
+    border-left: solid #cdcdcd 1px;
+    border-bottom: solid #cdcdcd 1px;
+    /* border-bottom: transparent; */
+    padding: 1px 1px 1px 31px;
+  }
+  .mobile__item.open:last-child:hover,
+  .problem__item:last-child:hover,
+  .memory-item.open:last-child:hover,
+  .condition-item.open:last-child:hover,
+  .equipment-item.open:last-child:hover {
+    border-bottom: solid #cdcdcd 1px;
+    border-right: solid #cdcdcd 1px;
+    border-left: solid #cdcdcd 1px;
+    border-top: none;
+    padding: 1px 1px 1px 31px;
   }
 
   .condition-item:first-child,
