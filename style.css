@@ -1262,13 +1262,12 @@ a {
   overflow: auto;
 }
 .popup-sale-phone__content {
-  position: relative;
-  top: 500px;
-  bottom: 300px;
+  /* position: relative; */
+  /* top: 500px; */
+  /* bottom: 300px; */
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1112px;
   height: 1764px;
   /* height: 636px; */
   min-width: 0;
@@ -1303,6 +1302,16 @@ a {
   margin: 0 auto;
   height: 1500px;
   justify-content: space-between;
+}
+
+.swiper__inner {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  max-width: 1112px;
 }
 
 .popup-sale-phone__item {
@@ -2052,6 +2061,11 @@ a {
     line-height: 48px;
     border-radius: 24px;
   }
+
+  .home-page__call-button:hover {
+    font-size: 16px;
+    transform: scale(1, 1);
+  }
   .home-page__services {
     height: 230px;
     flex-direction: column-reverse;
@@ -2234,6 +2248,11 @@ a {
     transform: rotate(0deg);
     transform: scale(0.8, 0.8);
   }
+
+  .service-items__content {
+    padding: 0px;
+  }
+
   .services__sale-left {
     bottom: -250px;
     left: 0px;
@@ -2257,6 +2276,7 @@ a {
     height: 100%;
     margin: 0 auto;
     min-width: 0;
+    padding: 0px;
   }
   .service-items__container {
     width: 100%;
@@ -2456,7 +2476,8 @@ a {
     flex-direction: column;
   }
   .popup-repair__items {
-    width: 256px;
+    width: 100%;
+    max-width: 256px;
     flex-direction: row;
     margin: 0 auto;
     flex-wrap: nowrap;
@@ -2512,6 +2533,13 @@ a {
   }
   .popup-sale-phone__sub-title {
     display: none;
+  }
+
+  .swiper__inner {
+    width: 100%;
+    max-width: 320px;
+    padding: 0;
+    height: 544px;
   }
   .swiper-button-next,
   .swiper-button-prev {
