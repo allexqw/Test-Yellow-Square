@@ -156,11 +156,12 @@ if (menuLinks.length > 0) {
 
 const swiper = new Swiper(".service-items", {
   speed: 400,
-  spaceBetween: 100,
+  spaceBetween: 200,
   // Optional parameters
-  direction: "horizontal",
+  // direction: "horizontal",
   // loop: true,
-
+  slidesPerView: 1,
+  touchRatio: 2,
   scrollbar: {
     el: ".swiper-scrollbar",
     draggable: true,
@@ -168,12 +169,12 @@ const swiper = new Swiper(".service-items", {
 
   breakpoints: {
     752: {
-      slidesPerView: 3,
+      slidesPerView: 2,
       autoHeight: false,
       touchRatio: 0,
       simulateTouch: false,
       watchOverflow: false,
-      slidesPerColumn: 4,
+      slidesPerColumn: 3,
       spaceBetween: 0,
     },
     1008: {
@@ -235,24 +236,24 @@ const swiperSale = new Swiper(".popup-sale-phone__content", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    768: {
+    752: {
       spaceBetween: 10,
       slidesPerView: 2,
       autoHeight: false,
       touchRatio: 2,
       loop: true,
     },
-    1024: {
+    1008: {
       loop: false,
       initialSlide: 0,
       // centeredSlides: true,
-      slidesPerView: 4,
+      slidesPerView: 3,
       slidesPerColumn: 3,
       autoHeight: false,
       touchRatio: 0,
       simulateTouch: false,
       watchOverflow: false,
-      spaceBetween: 30,
+      spaceBetween: 10,
     },
   },
 });
