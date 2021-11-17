@@ -450,14 +450,14 @@
             <div class="request__form-title">
               Оставьте свой телефон, и мы вам перезвоним
             </div>
-            <div class="request__form-field ">
-              <input class="request__form-input"  placeholder="+375 (29) 588 34 49"></input>
+            <div class="request__form-field form">
+              <input class="request__form-input form" onfocus="onFocus()" onchange="changePhone()"  placeholder="+375 (29) 588 34 49"></input>
               <div data-p="popup" class="request__form-button-items popup-link">
                 <div class="request__form-button">Отправить</div>
                 <div class="icon-footer-button-mobile"></div>
               </div>
             </div>
-            <div class="request__form-invalid-text">
+            <div class="request__form-invalid-text form">
               Проверьте,пожалуйста, корректность номера телефона
             </div>
             <div class="request__form-sub-title">
@@ -523,12 +523,14 @@
             <div class="request__form-title">
               Оставьте свой телефон, и мы вам перезвоним
             </div>
-            <div class="request__form-field-popup">
-              <input class="request__form-input-popup" placeholder="+375 (29) 588 34 49"></input>
-              <div data-p="popup" class="request__form-button popup-link ">Отправить</div>
-              <div data-p="popup" class="icon-footer-button-mobile popup-link "></div>
+            <div class="request__form-field form">
+              <input class="request__form-input form " onchange="changePhone()" placeholder="+375 (29) 588 34 49"></input>
+              <div data-p="popup" class="request__form-button-items popup-link">
+                <div class="request__form-button">Отправить</div>
+                <div class="icon-footer-button-mobile"></div>
+              </div>
             </div>
-            <div class="request__form-invalid-text-popup">
+            <div class="request__form-invalid-text form">
               Проверьте,пожалуйста, корректность номера телефона
             </div>
             <div class="request__form-sub-title">
@@ -791,8 +793,9 @@
       </div>
     </div>
 
-
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./swiper.js"></script>
+    <script src="./inputmask.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

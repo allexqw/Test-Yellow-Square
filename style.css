@@ -877,13 +877,14 @@ a {
   line-height: 20px;
   font-weight: 500;
 }
-.request__form-invalid-text-popup,
+
+.request__form-invalid-text.invalid {
+  display: block;
+}
 .request__form-invalid-text {
   display: none;
 }
-.request__form-field-popup.invalid,
 .request__form-field.invalid,
-.request__form-field-popup.invalid input,
 .request__form-field.invalid input {
   background-color: #fff1f1;
 }
@@ -918,8 +919,8 @@ a {
 .popup-call .popup-call__container .request__form .request__form-field.invalid {
   margin-top: 15px;
   background-color: #fff1f1;
+  border: 1px solid #ff0000;
 }
-.request__form-invalid-text-popup,
 .request__form-invalid-text {
   color: #ff0000;
   margin-top: 10px;
@@ -931,10 +932,6 @@ a {
 }
 .popup-call .popup-call__container .request__form .request__form-field {
   border: 1px solid #cbcbcb;
-}
-.request__form-field.invalid,
-.request__form-field-popup.invalid {
-  border: 1px solid #ff0000;
 }
 .popup-call .popup-call__container .request__form .request__form-sub-title {
   font-size: 12px;
@@ -1546,7 +1543,7 @@ a {
     padding-bottom: 20px;
   }
   .popup-repair__items {
-    margin-top: 48px;
+    margin-top: 0px;
     max-width: 480px;
     height: 558px;
     flex-direction: column;
