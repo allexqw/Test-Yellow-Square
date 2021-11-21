@@ -37,7 +37,7 @@ const regex = /^\+375 (\((17 |25|29|33|44)\)) [0-9]{3} [0-9]{2} [0-9]{2}$/;
 
 function onFocus() {
   inputs.forEach((item) => {
-    item.value = "";
+    item.value = [];
   });
 }
 
@@ -56,21 +56,61 @@ function changePhone() {
     }
   });
 }
+function closeSelect(elem) {
+  const element = elem.querySelectorAll(".select");
+  elem.classList.remove("open");
+  element.forEach((item) => {
+    item.classList.remove("open");
+    if (item.classList.contains("active-select")) {
+      active.push(item.innerHTML);
+    }
+  });
+}
+function openSelect(elem) {
+  elem.classList.add("open");
+  const element = elem.querySelectorAll(".select");
+  element.forEach((item) => {
+    item.classList.add("open");
+  });
+}
 
+let active = [];
 if (itemButton.length > 0) {
   itemButton.forEach((elem) => {
-    const elements = elem.querySelectorAll(".select");
+    active = [];
     elem.addEventListener("click", () => {
+      const chooseItems = elem.querySelectorAll(".item");
       const selectItem = document.querySelectorAll(".select.open");
-      if (selectItem.length == 0) {
-        elem.classList.add("open");
-        elements.forEach((e) => {
-          e.classList.add("open");
+      const chooseItem = elem.querySelector(".choose-item");
+      if (!selectItem.length) {
+        chooseItems.forEach((item) => {
+          active = [];
+          item.addEventListener("click", (e) => {
+            if (
+              elem.classList.contains("calculator__equipment") ||
+              elem.classList.contains("calculator__problem")
+            ) {
+              item.classList.toggle("active-select");
+            } else {
+              chooseItems.forEach((item) => {
+                item.classList.remove("active-select");
+              });
+              item.classList.add("active-select");
+            }
+          });
+          active = [];
         });
+        openSelect(elem);
       } else {
-        selectItem.forEach((elem) => {
-          elem.classList.remove("open");
-        });
+        closeSelect(elem);
+      }
+
+      if (active.length == 0) {
+      } else {
+        chooseItem.innerHTML = active;
+        chooseItem.scrollIntoView(false);
+        chooseItem.style.top = "0";
+        active = [];
       }
     });
   });
@@ -141,8 +181,6 @@ function popupOpen(currentPopup) {
   }
 }
 const formItem = document.querySelectorAll(".form");
-console.log(formItem);
-
 function invalidFormAdd() {
   formItem.forEach((item) => {
     item.classList.add("invalid");
