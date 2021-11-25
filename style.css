@@ -31,56 +31,90 @@ a {
 .burger::after,
 .burger::before,
 .close::after {
-  transition: ease 0.1s all 0.1s;
+  transition: ease 0.3s all 0s;
 }
 .icon-phone::before {
-  transition: ease 0.1s all 0.1s;
+  transition: ease 0.1s all 0.3s;
 }
-.arrow::after,
-.calculator__problem-items,
+
+.active .icon-phone::before {
+  transition: 0.1s ease;
+}
+.calculator__problem.open.arrow::after,
+.calculator__condition.open.arrow::after,
+.calculator__memory.open.arrow::after,
+.calculator__equipment.open.arrow::after,
+.calculator__mobile.open.arrow::after {
+  transition: 0.5s transform ease, 0s z-index;
+}
+/* .calculator__problem-items,
 .calculator__mobile-items,
 .calculator__equipment-items,
 .calculator__condition-items,
-.calculator__memory-items,
+.calculator__memory-items, */
 .calculator__equipment-items.open,
 .calculator__condition-items.open,
 .calculator__memory-items.open,
 .calculator__mobile-items.open,
-.calculator__problem-items.open,
+.calculator__problem-items.open {
+  transition: 0.5s height ease;
+}
+
 .request__form-button,
 .popup-sale-phone,
 .popup-call.popup,
 .popup,
 .popup__button-close .icon-close:hover::before,
 .popup-repair.popup,
-.close-popup .icon-close:hover::before,
-.calculator__condition-items:hover,
-.calculator__mobile-items:hover {
-  transition: 0.3s all ease;
+.close-popup .icon-close:hover::before {
+  transition: 0.5s opacity ease 0.3s background-color;
+}
+/* .calculator__condition-items:hover,
+.calculator__mobile-items:hover  */
+/* 
+.calculator__equipment-items.open,
+.calculator__condition-items.open,
+.calculator__memory-items.open,
+.calculator__mobile-items.open,
+.calculator__problem-items.open, */
+.calculator__problem-items,
+.calculator__mobile-items,
+.calculator__equipment-items,
+.calculator__condition-items,
+.calculator__memory-items {
+  /* transition: 0s z-index 0.3s; */
+  transition: 0.5s height ease, 0s z-index 0.5s;
 }
 .problem__item.open,
 .mobile__item.open,
 .memory__item.open,
 .condition__item.open,
-.equipment__item.open,
+.equipment__item.open {
+  transition: 0.1s opacity ease;
+}
 .problem__item,
 .mobile__item,
 .memory__item,
 .condition__item,
 .equipment__item {
-  transition: all 0.1s ease;
+  transition: 0.1s opacity 0.5s;
 }
 
 .calculator__problem-title.open,
 .calculator__mobile-title.open,
 .calculator__memory-title.open,
 .calculator__condition-title.open,
-.calculator__equipment-title.open,
+.calculator__equipment-title.open {
+  opacity: 0;
+}
+
 .calculator__problem-title,
 .calculator__mobile-title,
 .calculator__memory-title,
 .calculator__condition-title,
 .calculator__equipment-title {
+  overflow: hidden;
+  opacity: 1;
   /* transition: 0.2s all ease 0.2s; */
   /* transition: 0.3s all linear 0.3s; */
 }
@@ -89,12 +123,27 @@ a {
   border: 2px #808080 solid;
 }
 
-.calculator__problem-items,
 .calculator__mobile-items,
+.calculator__problem-items,
 .calculator__equipment-items,
 .calculator__condition-items,
 .calculator__memory-items {
   z-index: 5;
+}
+.calculator__mobile-items::-webkit-scrollbar-thumb::before {
+  content: "";
+  width: 4px;
+  height: 220px;
+  padding-right: 8px;
+}
+.calculator__mobile-items::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  height: 220px;
+}
+.calculator__mobile-items::-webkit-scrollbar {
+  width: 4px;
+  height: 220px;
 }
 
 .header {
@@ -471,6 +520,8 @@ a {
   border-right: #000000 1px solid;
   border-bottom: #000000 1px solid;
   transform: rotate(45deg) translate(-50%, -50%);
+  /* transition: 0.1s all ease 0.5s; */
+  transition: 0.5s transform ease, 0.1s z-index 0.5s ease;
 }
 
 .calculator__mobile.open.arrow::after,
@@ -591,23 +642,32 @@ a {
 .calculator__problem-title {
   display: none;
 }
+.calculator__mobile-title.open {
+  opacity: 0;
+  visibility: hidden;
+}
 
 .calculator__mobile-title {
   position: absolute;
-  /* display: none; */
-  top: -64px;
-  padding: 1px 1px 1px 31px;
-  height: 62px;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+  /* padding: 1px 1px 1px 31px; */
+  padding: 0px 0px 0px 30px;
+  height: 64px;
   line-height: 64px;
   left: 0px;
   width: 100%;
   font-size: 16px;
-  z-index: 7;
+  z-index: 2;
   background: #f8f8f8;
   font-weight: 400;
 }
 .calculator__mobile-title:hover {
-  padding: 0px 0px 0px 30px;
+  /* padding: 0px 0px 0px 30px; */
+  /* height: 60px; */
+  top: -1px;
+  left: -1px;
 }
 
 .calculator__memory-title-desktop,
@@ -630,9 +690,10 @@ a {
   border: transparent;
   position: relative;
 }
-/* .calculator__mobile-title:hover {
+.mobile__item:hover {
   padding: 0px 0px 0px 30px;
-} */
+  height: 62px;
+}
 .calculator__mobile-items.open {
   height: 446px;
   overflow: auto;
@@ -645,7 +706,7 @@ a {
 }
 .calculator__mobile-items.open:hover {
   border: 1px solid #cdcdcd;
-  padding: 1px;
+  padding: 0px;
 }
 
 .calculator__mobile-items {
@@ -672,13 +733,14 @@ a {
   position: relative;
   z-index: 5;
   background: #f8f8f8;
-  visibility: hidden;
+  visibility: visible;
   cursor: pointer;
+  opacity: 0;
   border-bottom: none;
 }
 .mobile__item.open:hover {
   background: #cbcbcb;
-  padding: 1px 1px 1px 31px;
+  /* padding: 1px 1px 1px 31px; */
 }
 .mobile__item.open {
   visibility: visible;
@@ -687,6 +749,11 @@ a {
 }
 
 .calculator__mobile-items div:nth-of-type(2) {
+  visibility: visible;
+  padding: 1px 1px 1px 31px;
+  opacity: 0;
+}
+.calculator__mobile-items.open div:nth-of-type(2) {
   visibility: visible;
   padding: 1px 1px 1px 31px;
   opacity: 1;
@@ -754,16 +821,28 @@ a {
   height: 80px;
   position: relative;
   z-index: 4;
+  line-height: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 .trade-in-page__calculator .calculator__description {
   font-size: 14px;
 }
-.condition__item p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.condition__item div {
+  max-width: 200px;
   width: 100%;
-  transform: translate(-50%, -50%);
+  /* height: 32px; */
+  text-align: center;
+  /* margin: auto; */
+
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* width: 100%; */
+  /* transform: translate(-50%, -50%); */
 }
 /* ------------location----------- */
 .location {
@@ -1800,6 +1879,7 @@ a {
   .calculator__condition-items,
   .calculator__memory-items,
   .calculator__equipment-items {
+    background: #f8f8f8;
     position: relative;
     bottom: 0;
   }
@@ -1853,20 +1933,51 @@ a {
   }
 
   .calculator__condition-title {
-    margin: 0;
+    /* margin: 0; */
+    /* line-height: 20px; */
+    position: absolute;
+    line-height: 64px;
+    display: flex;
+    flex-direction: row;
+  }
+  .calculator__mobile-title {
+    position: absolute;
+    top: 0%;
+    line-height: 64px;
+  }
+
+  .calculator__mobile-title {
+    display: block;
+    height: 64px;
   }
   .calculator__condition-title,
   .calculator__mobile-title {
-    display: block;
-    position: absolute;
-    top: 0%;
-    height: 64px;
+    opacity: 1;
     width: 100%;
     font-size: 16px;
     font-weight: 400;
-    line-height: 64px;
     border-radius: 16px;
     padding: 1px 1px 1px 31px;
+    color: #808080;
+  }
+
+  .calculator__condition-title div {
+    max-width: 300px;
+    width: auto;
+    margin-right: 10px;
+    /* height: 32px; */
+    text-align: left;
+  }
+
+  .calculator__condition-items div:nth-of-type(3),
+  .calculator__mobile-items div:nth-of-type(2) {
+    visibility: visible;
+    opacity: 0;
+  }
+  .calculator__condition-items.open div:nth-of-type(3),
+  .calculator__mobile-items.open div:nth-of-type(2) {
+    visibility: visible;
+    opacity: 1;
   }
 
   .calculator__condition-items.open {
@@ -1876,6 +1987,7 @@ a {
   .calculator__condition-items:hover,
   .calculator__mobile-items:hover {
     border: 2px #cbcbcb solid;
+    /* padding: 0px 0px 0px 0px; */
   }
   .calculator__condition-items.open:hover,
   .calculator__mobile-items.open:hover {
@@ -1917,11 +2029,28 @@ a {
   .mobile__item.open:hover {
     background: #cdcdcd;
     border: none;
+    padding: 0px 0px 0px 30px;
   }
+
+  .condition__item {
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    max-width: 608px;
+    padding: 0px 0px 0px 30px;
+  }
+  .condition__item div {
+    max-width: 300px;
+    margin-right: 10px;
+    width: auto;
+    text-align: left;
+  }
+
   .condition__item,
   .mobile__item {
-    visibility: hidden;
-    opacity: 1;
+    visibility: visible;
+    opacity: 0;
     width: 100%;
     max-width: 608px;
     height: 64px;
@@ -1937,18 +2066,14 @@ a {
   .problem__item.active-select,
   .memory__item.active-select,
   .equipment__item.active-select {
-    border: 2px solid #808080;
+    border: 2px solid #2c6dec;
   }
 
   .mobile__item.active-select,
   .condition__item.active-select {
     background-color: rgba(0, 0, 0, 0.08);
-  }
-
-  .calculator__condition-items div:nth-of-type(2),
-  .calculator__mobile-items div:nth-of-type(2) {
-    visibility: visible;
-    opacity: 1;
+    border: none;
+    padding: 0px 0px 0px 30px;
   }
 
   .calculator__condition-items div:nth-of-type(2):hover {
@@ -2019,6 +2144,7 @@ a {
   }
   .header__menu-contact.active .icon-phone::before {
     visibility: hidden;
+    opacity: 0;
   }
   .header__menu-contact.active {
     border: transparent;
@@ -2026,6 +2152,7 @@ a {
   .header__menu-contact.active .close::before {
     visibility: visible;
     top: 50%;
+    opacity: 1;
     transform: rotate(-45deg) translate(0px, -50%);
   }
   .header__menu-contact.active .close::after {
@@ -2918,7 +3045,7 @@ a {
   .calculator__memory-items div:nth-of-type(2),
   .calculator__condition-items div:nth-of-type(2),
   .calculator__mobile-items div:nth-of-type(2) {
-    visibility: hidden;
+    visibility: visible;
     opacity: 0;
     /* transition: all 0.5s ease; */
   }
@@ -2966,6 +3093,13 @@ a {
     opacity: 0;
     visibility: hidden;
   }
+  .problem__item.open,
+  .mobile__item.open,
+  .memory__item.open,
+  .condition__item.open,
+  .equipment__item.open {
+    opacity: 1;
+  }
   .problem__item,
   .mobile__item,
   .memory__item,
@@ -2979,7 +3113,8 @@ a {
     margin: 0;
     visibility: hidden;
     border-radius: 0px;
-    /* opacity: 0; */
+    opacity: 0;
+    visibility: visible;
     border: none;
     line-height: 48px;
     position: relative;
@@ -3008,6 +3143,7 @@ a {
     border: none;
     padding: 1px 1px 1px 31px;
     background: #f8f8f8;
+    height: 48px;
   }
 
   .problem__item:hover,

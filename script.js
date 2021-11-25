@@ -8,10 +8,6 @@ const body = document.querySelector("body");
 
 const page = document.querySelectorAll(".page[data-page]");
 const menuLinks = document.querySelectorAll(".menu__link[data-link]");
-const items = document.querySelectorAll(".item");
-const itemButton = document.querySelectorAll(".items");
-const select = document.querySelectorAll(".select");
-
 const popupCloseIcon = document.querySelectorAll(".close-popup");
 const lockPadding = document.querySelector(".lock-padding");
 let phone = false;
@@ -57,60 +53,111 @@ function changePhone() {
   });
 }
 function closeSelect(elem) {
-  const element = elem.querySelectorAll(".select");
-  elem.classList.remove("open");
-  element.forEach((item) => {
+  const element = elem.closest(".items");
+  const items = element.querySelectorAll(".select.open");
+  console.log("закрываем");
+
+  items.forEach((item) => {
     item.classList.remove("open");
-    if (item.classList.contains("active-select")) {
-      active.push(item.innerHTML);
-    }
+    element.classList.remove("open");
   });
+  updateSelect(element);
 }
 function openSelect(elem) {
-  elem.classList.add("open");
-  const element = elem.querySelectorAll(".select");
+  const items = elem.closest(".items");
+  console.log("открываем");
+  items.classList.add("open");
+  const element = items.querySelectorAll(".select");
   element.forEach((item) => {
     item.classList.add("open");
   });
 }
 
-let active = [];
-if (itemButton.length > 0) {
-  itemButton.forEach((elem) => {
-    active = [];
-    elem.addEventListener("click", () => {
-      const chooseItems = elem.querySelectorAll(".item");
-      const selectItem = document.querySelectorAll(".select.open");
-      const chooseItem = elem.querySelector(".choose-item");
-      if (!selectItem.length) {
-        chooseItems.forEach((item) => {
-          active = [];
-          item.addEventListener("click", (e) => {
-            if (
-              elem.classList.contains("calculator__equipment") ||
-              elem.classList.contains("calculator__problem")
-            ) {
-              item.classList.toggle("active-select");
-            } else {
-              chooseItems.forEach((item) => {
-                item.classList.remove("active-select");
-              });
-              item.classList.add("active-select");
-            }
-          });
-          active = [];
-        });
-        openSelect(elem);
-      } else {
-        closeSelect(elem);
-      }
+let innerSelect = [];
 
-      if (active.length == 0) {
+function updateSelect(elem) {
+  const activeItems = elem.querySelectorAll(".active-select");
+  const inputSelect = elem.querySelector(".choose-item");
+  activeItems.forEach((item) => {
+    innerSelect.push(item.innerHTML);
+    console.log("it is");
+  });
+  console.log(elem);
+  if (elem.classList.contains("calculator__mobile")) {
+    inputSelect.scrollIntoView(false);
+  }
+  inputSelect.innerHTML = innerSelect;
+  innerSelect = [];
+}
+
+function chooseItem(elem) {
+  console.log(elem);
+  if (elem.classList.contains("active-select")) {
+    elem.classList.remove("active-select");
+  } else {
+    elem.classList.add("active-select");
+  }
+  const activeItem = elem;
+  const element = elem.closest(".items");
+  const elements = element.querySelectorAll(".item");
+  elements.forEach((item) => {
+    if (
+      item.classList.contains("equipment__item") ||
+      item.classList.contains("problem__item")
+    ) {
+      // if (item == activeItem) {
+      //   console.log("delete");
+      //   item.classList.remove("active-select");
+      // }
+    } else {
+      if (item != activeItem) {
+        item.classList.remove("active-select");
+      }
+    }
+  });
+  // elem.classList.add("active-select");
+  closeSelect(elem);
+}
+
+const selectItems = document.querySelectorAll(".item");
+if (selectItems.length > 0) {
+  selectItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const activeSelect = document.querySelector(".open.items");
+      if (
+        (item.classList.contains("memory__item") &&
+          document.body.clientWidth > 768) ||
+        (item.classList.contains("problem__item") &&
+          document.body.clientWidth > 768) ||
+        (item.classList.contains("equipment__item") &&
+          document.body.clientWidth > 768)
+      ) {
+        console.log("768");
+        chooseItem(item);
+      } else if (
+        document.body.clientWidth > 1024 &&
+        item.classList.contains("condition__item")
+      ) {
+        console.log("1024");
+        chooseItem(item);
       } else {
-        chooseItem.innerHTML = active;
-        chooseItem.scrollIntoView(false);
-        chooseItem.style.top = "0";
-        active = [];
+        if (activeSelect) {
+          if (
+            activeSelect.classList.contains("open") !=
+            item.classList.contains("open")
+          ) {
+            closeSelect(activeSelect);
+            function set() {
+              openSelect(item);
+            }
+            setTimeout(set, 600);
+          } else {
+            console.log("open ");
+            chooseItem(item);
+          }
+        } else {
+          openSelect(item);
+        }
       }
     });
   });
