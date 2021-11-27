@@ -13,9 +13,12 @@ const lockPadding = document.querySelector(".lock-padding");
 let phone = false;
 let lockPopup = true;
 let phoneNumber;
+let innerSelect = [];
 const inputsButton = document.querySelectorAll(".request__form-button-items");
 let inputs = document.querySelectorAll(".request__form-input");
 let im = new Inputmask("+375 (99) 999 99 99");
+const regex = /^\+375 (\((17 |25|29|33|44)\)) [0-9]{3} [0-9]{2} [0-9]{2}$/;
+
 im.mask(inputs);
 
 inputsButton.forEach((item) => {
@@ -28,8 +31,6 @@ inputsButton.forEach((item) => {
     }
   });
 });
-
-const regex = /^\+375 (\((17 |25|29|33|44)\)) [0-9]{3} [0-9]{2} [0-9]{2}$/;
 
 function onFocus() {
   inputs.forEach((item) => {
@@ -55,8 +56,6 @@ function changePhone() {
 function closeSelect(elem) {
   const element = elem.closest(".items");
   const items = element.querySelectorAll(".select.open");
-  console.log("закрываем");
-
   items.forEach((item) => {
     item.classList.remove("open");
     element.classList.remove("open");
@@ -65,7 +64,6 @@ function closeSelect(elem) {
 }
 function openSelect(elem) {
   const items = elem.closest(".items");
-  console.log("открываем");
   items.classList.add("open");
   const element = items.querySelectorAll(".select");
   element.forEach((item) => {
@@ -73,25 +71,26 @@ function openSelect(elem) {
   });
 }
 
-let innerSelect = [];
-
 function updateSelect(elem) {
+  console.log(elem);
+  const defaultValue = elem.querySelector(".default");
   const activeItems = elem.querySelectorAll(".active-select");
   const inputSelect = elem.querySelector(".choose-item");
   activeItems.forEach((item) => {
     innerSelect.push(item.innerHTML);
-    console.log("it is");
   });
-  console.log(elem);
   if (elem.classList.contains("calculator__mobile")) {
     inputSelect.scrollIntoView(false);
+  }
+  if (innerSelect.length == 0) {
+    console.log(defaultValue);
+    innerSelect = defaultValue.innerHTML;
   }
   inputSelect.innerHTML = innerSelect;
   innerSelect = [];
 }
 
 function chooseItem(elem) {
-  console.log(elem);
   if (elem.classList.contains("active-select")) {
     elem.classList.remove("active-select");
   } else {
@@ -105,17 +104,12 @@ function chooseItem(elem) {
       item.classList.contains("equipment__item") ||
       item.classList.contains("problem__item")
     ) {
-      // if (item == activeItem) {
-      //   console.log("delete");
-      //   item.classList.remove("active-select");
-      // }
     } else {
       if (item != activeItem) {
         item.classList.remove("active-select");
       }
     }
   });
-  // elem.classList.add("active-select");
   closeSelect(elem);
 }
 
@@ -132,13 +126,11 @@ if (selectItems.length > 0) {
         (item.classList.contains("equipment__item") &&
           document.body.clientWidth > 768)
       ) {
-        console.log("768");
         chooseItem(item);
       } else if (
         document.body.clientWidth > 1024 &&
         item.classList.contains("condition__item")
       ) {
-        console.log("1024");
         chooseItem(item);
       } else {
         if (activeSelect) {
@@ -152,7 +144,6 @@ if (selectItems.length > 0) {
             }
             setTimeout(set, 600);
           } else {
-            console.log("open ");
             chooseItem(item);
           }
         } else {
